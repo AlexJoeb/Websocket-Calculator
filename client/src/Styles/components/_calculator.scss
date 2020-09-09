@@ -1,0 +1,87 @@
+.calculator {
+    width: 278px;
+    padding-top: 15px;
+
+    @include flex($dir: column);
+
+    &__error {
+        color:color(red);
+        font-size: fs(small);
+        height: 0px;
+        transition: height .2s ease-in-out;
+        overflow-y: hidden;
+
+        @include flex {
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        &.open {
+            height: 25px;
+        }
+    }
+
+    &__prompt {
+        height: 35px;
+        background: color(gray);
+        color: color(white);
+        margin-bottom: 15px;
+        padding-right: 15px;
+        
+        @include flex {
+            justify-content: flex-end;
+            align-items: center;
+        }
+    }
+
+    &__buttons {
+        @include grid($temp: 62px 62px 62px 62px 62px #{"/"} 62px 62px 62px 62px, $areas: "controls lbracket rbracket divide" "seven eight nine multiply" "four five six minus" "one two three plus" "zero zero period solve") {
+            grid-gap: 10px;
+        }
+
+        & > button, & > div {
+           flex-basis: 62px;
+        }
+
+        &--zero {
+            grid-area: zero;
+        }
+
+        &__group {
+            grid-area: controls;
+
+            @include grid($temp: 1fr 1fr #{"/"} 1fr, $areas: "top" "bottom") {
+                grid-gap: 3px;
+            }
+
+            button {
+                width: 100%;
+
+                &:first-of-type {
+                    grid-area: top;
+                }
+
+                &:last-of-type {
+                    grid-area: bottom;
+                }
+            }
+        }
+
+        button {
+            background: 0;
+            border: 0;
+
+            color: color(white);
+            font-weight: fw(bold);
+            background: color(gray);
+
+            &:hover {
+                cursor: pointer;
+            }
+
+            &:active, &:focus {
+                outline: none;
+            }
+        }
+    }
+}
