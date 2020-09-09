@@ -13,7 +13,7 @@ export function App({ setEquations }) {
   const [socket, setSocket] = useState(null)
 
   useEffect(() => {
-    setSocket(io('http://localhost:8000'));
+    setSocket(io('https://websocketcalculator.herokuapp.com/'));
     return () => socket.disconnect();
   }, [])
 
