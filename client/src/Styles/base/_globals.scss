@@ -1,0 +1,22 @@
+.app {
+    height: 100vh;
+    width: 100vw;
+
+    background: color(blue);
+
+    @include flex($dir: column){
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__breaker {
+        height: 5px;
+        width: 278px;
+        margin: 15px 0;
+        background: color(gray);
+    }
+}
+
+* {
+    box-sizing: border-box;
+}
