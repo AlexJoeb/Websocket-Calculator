@@ -9,6 +9,7 @@ export const History = ({ history }) => {
         <div className='history'>
             <h1>History »</h1>
             <div className='history__items'>
+                { !history.length && <p className='history__items--nts'>Nothing to show so far..</p>}
                 {
                     history.map((item, indx) => (
                         <div className='history__items__item' key={indx}>
