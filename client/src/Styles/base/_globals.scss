@@ -2,6 +2,8 @@
     height: 100vh;
     width: 100vw;
 
+    overflow-y:scroll;
+
     background: color(blue);
 
     @include flex($dir: column){

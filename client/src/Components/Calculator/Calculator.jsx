@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import Equations from 'equations';
 import Buttons from './Buttons';
 
-export default () => {
+export default ({ newEquation }) => {
 
     let [equation, setEquation] = useState('');
     let [answer, setAnswer] = useState(null);
@@ -28,6 +28,16 @@ export default () => {
             setAnswer(solved);
         }
     };
+    
+    useEffect(() => {
+        if(!isNaN(answer) && answer !== null) newEquation({
+            user: 'User A',
+            equation,
+            answer,
+        });
+    
+    // eslint-disable-next-line
+    }, [answer])
 
     // Backspace one character.
     const backspace = () => equation.length > 0 ? setEquation(equation.slice(0, -1)) : null;
